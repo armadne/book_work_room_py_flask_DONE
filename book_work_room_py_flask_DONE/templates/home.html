@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Home Page</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300&family=PT+Sans+Narrow&display=swap" rel="stylesheet">
+
+        <link rel="stylesheet" type="text/css" href="{{url_for('static', filename="style.css")}}">
+    </head>
+
+
+    <body>
+
+        
+
+        <nav>
+            <ul>
+
+                <a href="{{url_for('home')}}"><li>Home</li></a>
+                <a href="{{url_for('view_data')}}"><li>Comments Page</li></a>
+                
+                
+            <ul>
+        </nav>
+
+        {% block content %}
+
+        <h1>Registration to reserve a work room</h1>
+        
+        
+
+        <form action="/submit" method="post">
+
+
+            <label for="name">Name : </label>
+            <input type="text" name="name" placeholder="paul" required /></br></br>
+    
+            <label for="family_name">Family Name : </label>
+            <input type="text" name="family_name" placeholder="Dupont" /></br></br>
+    
+            <label for="email">Email :</label>
+            <input type="email" name="email" placeholder="paul@gmail.com" required /></br></br>
+    
+            <label for="major_subjects">Major Subjects :</label>
+            <textarea type="text" name="major_subjects" placeholder="Computer Science , Electric engineer"></textarea></br></br>
+    
+            <label for="time_slot">Choose a Time Slot</label>
+            <input type="text" name="time_slot" placeholder="13:30 pm to 15:00 pm" /></br></br>
+    
+            <input type="submit" value="register" />
+
+        </form>
+
+
+
+
+        {% for student_data in student_data %}
+
+            {{student_data.name}} , {{student_data.family_name}} , {{student_data.email}} , {{student_data.major_subjects}} , {{student_data.time_slot}} </br>
+
+        {% endfor%}
+
+        {% endblock %}
+
+
+    </body>
+
+    
+</html>

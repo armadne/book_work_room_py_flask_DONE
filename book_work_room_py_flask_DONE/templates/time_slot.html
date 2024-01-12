@@ -1,0 +1,17 @@
+{% extends "home.html" %}
+
+{% block content %}
+
+<h1>Time Slot Already Booked</h1>
+
+
+{% for student_data in student_data %}
+
+
+    {{student_data.name}} , {{student_data.family_name}} , {{student_data.email}} , {{student_data.major_subjects}} , {{student_data.time_slot}} </br>
+
+
+{% endfor %}
+
+
+{% endblock %}
